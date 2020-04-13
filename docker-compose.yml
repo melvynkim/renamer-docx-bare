@@ -1,0 +1,31 @@
+# Docker Compose file Reference (https://docs.docker.com/compose/compose-file/)
+version: '3.7'
+
+# Define services
+services:
+    app-api:
+        container_name: app-api
+        restart: always
+        build: .
+        volumes:
+            - '.:/code'
+        ports:
+            - 8000:8000
+        command: 'python manage.py runserver 0.0.0.0:8000'
+        depends_on:
+            - app-db
+        env_file:
+            - ./.env.dev
+    app-db:
+        container_name: app-db
+        image: 'kiasaki/alpine-postgres:9.5'
+        volumes:
+            - 'database:/var/lib/postgresql/data/'
+#        environment:
+#            - POSTGRES_USER=renamer_api_user_dev
+#            - POSTGRES_PASSWORD=renamer_api_pass_dev
+#            - POSTGRES_DB=renamer_api_db_dev
+        env_file:
+          - ./.env.dev
+volumes:
+    database:
