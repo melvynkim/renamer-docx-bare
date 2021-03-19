@@ -10,7 +10,7 @@ configparser
 faker
 pandas
 django==3.0.3
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 django-oauth-toolkit==1.2.0
 djangorestframework-oauth==1.1.0
 django-cors-headers==3.2.0
