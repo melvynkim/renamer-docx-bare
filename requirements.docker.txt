@@ -8,7 +8,7 @@ gitignore-parser
 configparser
 faker
 pandas
-django==3.0.3
+django==3.1.9
 djangorestframework==3.11.0
 django-oauth-toolkit==1.2.0
 djangorestframework-oauth==1.1.0
